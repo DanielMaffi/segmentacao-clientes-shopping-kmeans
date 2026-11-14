@@ -54,37 +54,39 @@ Para facilitar a leitura e a manutenção, dividi o script em 14 blocos lógicos
 ### 4. Checagem de Qualidade e Integridade
 * **O que faz:** Procura por valores nulos (dados faltantes) e verifica se há duplicatas (clientes registrados duas vezes).
 * **O que observamos:** A base original é extremamente limpa, o que nos permite focar diretamente na extração de valor analítico sem perder tempo com imputação de dados.
-![[4. Valores duplicado.png]]
+![4. Valores duplicado.png](https://github.com/DanielMaffi/segmentacao-clientes-shopping-kmeans/blob/main/Imagens/4.%20Valores%20duplicado.png?raw=true)
 
 ### 5. Análise de Outliers (Violino + Stripplot)
 * **O que faz:** Substitui o Boxplot tradicional por uma visualização mais rica do Seaborn (Gráfico de Violino sobreposto por um gráfico de dispersão em formato de enxame).
 * **O que observamos:** Em vez de ver apenas quartis, conseguimos enxergar a "massa" de clientes. Existem alguns registros de renda na casa dos $130k+, que são valores extremos (*outliers*), mas totalmente válidos para a segmentação de clientes de luxo.
-![[5. Boxplot violino.png]]
+![5. Boxplot violino.png
+](https://github.com/DanielMaffi/segmentacao-clientes-shopping-kmeans/blob/main/Imagens/5.%20Boxplot%20violino.png?raw=true)
 
 ### 6. Análise de Outliers Interativa (Plotly)
 * **O que faz:** Gera um arquivo HTML independente com um Boxplot interativo.
 * **O que observamos:** Permite passar o mouse e inspecionar ponto a ponto. É uma excelente ferramenta para entregar relatórios interativos para gestores que não sabem programar.
-![[6. Boxplot Interativo HTML.png]]
+![6. Boxplot Interativo HTML.png](https://github.com/DanielMaffi/segmentacao-clientes-shopping-kmeans/blob/main/Imagens/6.%20Boxplot%20Interativo%20HTML.png?raw=true)
 
 ### 7. Distribuição Geral (Histogramas)
 * **O que faz:** Plota histogramas das colunas numéricas (Idade, Renda e Gastos).
 * **O que observamos:** A faixa etária predominante dos frequentadores é entre 30 e 40 anos, com a maior concentração de renda anual na faixa de 50k a 85k dólares.
-![[7. Histograma.png]]
+![7. Histograma.png](https://github.com/DanielMaffi/segmentacao-clientes-shopping-kmeans/blob/main/Imagens/7.%20Histograma.png?raw=true)
+
 ### 8. Relação Renda vs. Gastos
 * **O que faz:** Cria um gráfico de dispersão (*scatter plot*) bidimensional cruzando Renda e Score de Gastos.
 * **O que observamos:** Visualmente, já é possível notar a formação natural de **5 grandes grupos de consumidores**, validando a escolha futura do algoritmo e o número de clusters.
-![[8. Relacao (Renda X Gastos).png]]
+![8. Relacao (Renda X Gastos).png](https://github.com/DanielMaffi/segmentacao-clientes-shopping-kmeans/blob/main/Imagens/8.%20Relacao%20(Renda%20X%20Gastos).png?raw=true)
 
 ### 9. Matriz de Correlação (Heatmap)
 * **O que faz:** Calcula a correlação de Pearson entre as variáveis contínuas e plota um mapa de calor.
 * **O que observamos:** As variáveis numéricas têm correlações lineares fracas entre si. Isso prova que o comportamento de compra é complexo e justifica o uso de Machine Learning para encontrar padrões ocultos que uma simples estatística descritiva não pegaria.
-![[9. HeatMap correlacao.png]]
+![9. HeatMap correlacao.png](https://github.com/DanielMaffi/segmentacao-clientes-shopping-kmeans/blob/main/Imagens/9.%20HeatMap%20correlacao.png?raw=true)
 
 ### 10. Perfil Demográfico por Gênero
 * **O que faz:** Agrupa os dados por sexo e compara as médias.
 * **O que observamos:** A proporção de clientes femininas é levemente maior, mas os padrões de renda e gastos são estatisticamente muito similares entre homens e mulheres. O gênero isolado não define o potencial de compra.
-![[10. Analise por genero (Quantidade X Media).png]]
-![[10.1 Analise por genero.png]]
+![10. Analise por genero (Quantidade X Media).png](https://github.com/DanielMaffi/segmentacao-clientes-shopping-kmeans/blob/main/Imagens/10.%20Analise%20por%20genero%20(Quantidade%20X%20Media).png?raw=true)
+![10.1 Analise por genero.png](https://github.com/DanielMaffi/segmentacao-clientes-shopping-kmeans/blob/main/Imagens/10.1%20Analise%20por%20genero.png?raw=true)
 
 ### 11. Pré-processamento e Modelagem (K-Means)
 * **O que faz:** Isola as variáveis que importam (Idade, Renda, Gastos), aplica o `StandardScaler` (para colocar todas na mesma escala matemática) e treina o modelo K-Means configurado para encontrar 5 clusters ($K=5$). Salva as *labels* geradas de volta na base original.
@@ -96,13 +98,13 @@ Para facilitar a leitura e a manutenção, dividi o script em 14 blocos lógicos
   * *Econômicos/Conservadores:* Alta renda e baixos gastos.
   * *Massa (Público Geral):* Renda média e gastos médios.
   * Entre outras variações valiosas para campanhas de marketing.
-![[12. Avaliando o resultado agrupando por cluster.png]]
+![12. Avaliando o resultado agrupando por cluster.png](https://github.com/DanielMaffi/segmentacao-clientes-shopping-kmeans/blob/main/Imagens/12.%20Avaliando%20o%20resultado%20agrupando%20por%20cluster.png?raw=true)
 
 ### 13. Visão 2D da Segmentação (Com Centroides)
 * **O que faz:** Reverte a escala padronizada dos centroides (corações dos grupos) para os valores reais em dólares/pontos e os plota em um gráfico de dispersão 2D, marcando o centro com um "X". Facilita a visualização do mapeamento da IA.
-![[13. Resultado K-means.png]]
+![13. Resultado K-means.png](https://github.com/DanielMaffi/segmentacao-clientes-shopping-kmeans/blob/main/Imagens/13.%20Resultado%20K-means.png?raw=true)
 
 ### 14. Análise 3D Interativa Final (O Grande Diferencial)
 * **O que faz:** Utiliza o Plotly para gerar a segmentação completa cruzando simultaneamente **Idade, Renda e Gastos** em um espaço tridimensional exportado em HTML.
 * **O que observamos:** Ao interagir com o gráfico (girando e dando zoom), fica evidente que a Idade afeta diretamente alguns clusters. Por exemplo, podemos observar que clientes com altíssima pontuação de gastos e renda mais baixa costumam ser consideravelmente mais jovens. Essa visualização entrega um mapeamento comportamental completo para o negócio.
-![[14. Resultado interativo 3D (Idade X Renda X Gasto) HTML.png]]
+![14. Resultado interativo 3D (Idade X Renda X Gasto) HTML.png](https://github.com/DanielMaffi/segmentacao-clientes-shopping-kmeans/blob/main/Imagens/14.%20Resultado%20interativo%203D%20(Idade%20X%20Renda%20X%20Gasto)%20HTML.png?raw=true)
