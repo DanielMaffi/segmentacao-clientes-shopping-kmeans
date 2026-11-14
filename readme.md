@@ -49,7 +49,7 @@ Para facilitar a leitura e a manutenção, dividi o script em 14 blocos lógicos
 ### 3. Inspeção Inicial da Estrutura
 * **O que faz:** Exibe as primeiras linhas, os tipos de dados de cada coluna e um resumo estatístico (`describe`).
 * **O que observamos:** A base possui informações claras: ID do cliente, gênero, idade, renda anual (em milhares de dólares) e uma pontuação de gastos de 1 a 100 estabelecida pelo shopping.
-![[3. Estatisticas gerais.png]]
+![3. Estatisticas gerais.png](https://github.com/DanielMaffi/segmentacao-clientes-shopping-kmeans/blob/main/Imagens/3.%20Estatisticas%20gerais.png?raw=true)
 
 ### 4. Checagem de Qualidade e Integridade
 * **O que faz:** Procura por valores nulos (dados faltantes) e verifica se há duplicatas (clientes registrados duas vezes).
